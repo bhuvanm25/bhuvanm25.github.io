@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Spendings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[type="tel"], input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        table {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>My Spendings</h1>
+
+    <!-- Form for entering spendings -->
+    <form id="spendingsForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfzYoJGhml459B5eIJ_xeoBYuZzQwSySDrrmapFZZSEySlzfg/formResponse" method="POST" onsubmit="return handleFormSubmit(event);">
+        <label for="amount">Amount:</label>
+        <input type="tel" id="amount" name="entry.633768636" placeholder="Enter amount" required>
+
+        <label for="reason">Why:</label>
+        <input type="text" id="reason" name="entry.696751546" placeholder="Enter reason" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Table to display Google Sheet data -->
+    <h2>Spending History</h2>
+    <table id="spendingTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Reason</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be loaded here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Handle form submission with password check
+    function handleFormSubmit(event) {
+        event.preventDefault(); // Prevent default form submission (no page reload)
+        
+        var password = prompt("Please enter the password to submit:");
+        if (password !== "ovonel") {
+            alert("Incorrect password. Form will not be submitted.");
+            return false; // Abort submission if password is incorrect
+        }
+
+        var form = document.getElementById('spendingsForm');
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // Prevents the redirect
+        }).then(function() {
+            alert("Form submitted successfully!");
+            window.location.reload(); // Reload the page after successful submission
+        }).catch(function(error) {
+            console.error('Error:', error);
+        });
+
+        return false; // Prevent any further default form actions
+    }
+
+    // Immediately load data from Google Sheets
+    window.onload = function() {
+        loadGoogleSheetData(); // Load data from Google Sheet
+    }
+
+    // Function to fetch and display data from Google Sheet
+    function loadGoogleSheetData() {
+        const sheetId = '1-8u-CH9Rtf0PHcp2cyFjqGJ4s5I_UHtM29qicjWPGyY'; // Replace with your Google Sheet ID
+        const apiKey = 'AIzaSyBYEurbD9kD91y-i4OCDNsa3HjE4H3Wekc'; // Replace with your Google API Key
+        const range = 'My Spendings!A1:D'; // Change to your sheet range
+
+        fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                const rows = data.values;
+                const tableBody = document.getElementById('spendingTable').getElementsByTagName('tbody')[0];
+                tableBody.innerHTML = ''; // Clear existing data
+
+                rows.forEach((row, index) => {
+                    if (index === 0) return; // Skip the header row
+                    let newRow = tableBody.insertRow();
+                    row.forEach((cell, colIndex) => {
+                        let newCell = newRow.insertCell();
+                        let text = document.createTextNode(cell);
+                        newCell.appendChild(text);
+
+                        // If it's the "Amount" column (assumed to be column B, i.e., index 1)
+                        if (colIndex === 1) {
+                            let amount = parseFloat(cell); // Convert string to number
+
+                            // Apply red text for negative and green for positive
+                            if (amount < 0) {
+                                newCell.style.color = 'red';
+                            } else if (amount > 0) {
+                                newCell.style.color = 'green';
+                            }
+                        }
+
+                        // If it's the "Total" column (assumed to be column D, i.e., index 3)
+                        if (colIndex === 3) {
+                            let total = parseFloat(cell); // Convert string to number
+
+                            // Apply background color: green for positive, red for negative
+                            if (total < 0) {
+                                newCell.style.backgroundColor = 'red';
+                                newCell.style.color = 'white'; // Better contrast
+                            } else if (total > 0) {
+                                newCell.style.backgroundColor = 'green';
+                                newCell.style.color = 'white'; // Better contrast
+                            }
+                        }
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching Google Sheet data:', error); // Log any errors
+            });
+    }
+</script>
+
+</body>
+</html>
