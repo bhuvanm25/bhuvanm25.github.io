@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can-Mate Agreement</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Can-Mate Agreement Form</h2>
+    <h3>We a busy, so i decided to make this</h3>
+    <h3>It just compiles the questions and saves them, then we can discuss later</h3>
+    <h3>It does not submit the actual form, i will do that after we have agreed</h3>
+
+    <div class="question-section" id="studentNamesSection">
+        <h4>Names of all four students and room numbers:</h4>
+        <textarea id="studentNames"></textarea><br>
+        <button onclick="saveAnswer('studentNames')">Submit</button>
+        <div class="answers" id="studentNamesAnswers">(No answers yet)</div>
+    </div>
+
+    <div class="question-section" id="habitsSection">
+        <h4>What are your shower/washroom use habits like? What are your pet peeves? What are your personal habits?(smoking, drinking, music, meditation, exercise, etc.)</h4>
+        <textarea id="habits"></textarea><br>
+        <button onclick="saveAnswer('habits')">Submit</button>
+        <div class="answers" id="habitsAnswers">(No answers yet)</div>
+    </div>
+
+    <div class="question-section" id="medicalSection">
+        <h4>Any medical information that should be shared (allergies, medical conditions, etc.)?</h4>
+        <textarea id="medical"></textarea><br>
+        <button onclick="saveAnswer('medical')">Submit</button>
+        <div class="answers" id="medicalAnswers">(No answers yet)</div>
+    </div>
+
+    <div class="question-section" id="goodCanMateSection">
+        <h4>What does being a “good can-mate” mean to you? (being considerate, sharing the space equally, having a cleaning schedule, etc.)</h4>
+        <textarea id="goodCanMate"></textarea><br>
+        <button onclick="saveAnswer('goodCanMate')">Submit</button>
+        <div class="answers" id="goodCanMateAnswers">(No answers yet)</div>
+    </div>
+
+    <div class="question-section" id="needsSection">
+        <h4>What do you need from your canmate(s) to live in a productive and positive environment?</h4>
+        <textarea id="needs"></textarea><br>
+        <button onclick="saveAnswer('needs')">Submit</button>
+        <div class="answers" id="needsAnswers">(No answers yet)</div>
+    </div>
+
+    <div class="question-section" id="stressSection">
+        <h4>Coping With Stress - Outline how you should approach each other if you have a concern come up in the future. How do you like to be communicated with? Do you tend to address issues directly or avoid them?</h4>
+        <textarea id="stress"></textarea><br>
+        <button onclick="saveAnswer('stress')">Submit</button>
+        <div class="answers" id="stressAnswers">(No answers yet)</div>
+    </div>
+
+    <div class="question-section" id="noiseSection">
+        <h4>Studying, Sleeping, and Quiet - When is noise okay/not okay and how much? Remember, everyone has a responsibility to uphold Reasonable Quiet in Residence. At any given time it is expected that noise should be limited to a level in which it cannot be heard clearly outside of a Residence room, pod, or suite</h4>
+        <textarea id="noise"></textarea><br>
+        <button onclick="saveAnswer('noise')">Submit</button>
+        <div class="answers" id="noiseAnswers">(No answers yet)</div>
+    </div>
+
+    <div class="question-section" id="cleanlinessSection">
+        <h4>Cleanliness - You have the responsibility in Residence to maintain a clean and sanitary space free from all pests, and assist in the upkeep of your room. Will you have a cleaning schedule? Who will be responsible for the following and when: Garbage/recycling, vacuuming, cleaning the toilet, wiping the counters, mirror, and sink, cleaning the shower, etc.</h4>
+        <textarea id="cleanliness"></textarea><br>
+        <button onclick="saveAnswer('cleanliness')">Submit</button>
+        <div class="answers" id="cleanlinessAnswers">(No answers yet)</div>
+    </div>
+
+    <div class="question-section" id="sharingSection">
+        <h4>Sharing - What are we okay to share? What are we not okay to share? (cleaning supplies, soap, toilet paper, etc.)        </h4>
+        <textarea id="sharing"></textarea><br>
+        <button onclick="saveAnswer('sharing')">Submit</button>
+        <div class="answers" id="sharingAnswers">(No answers yet)</div>
+    </div>
+
+    <div class="question-section" id="guestsSection">
+        <h4>Guests and Visitors - In accordance with the Guest Policy in the Residence Standards, are you comfortable with guests? When are guests allowed versus not allowed (during exams, mornings, evenings, etc)? 
+
+            Are guests allowed to shower in our washroom? </h4>
+        <textarea id="guests"></textarea><br>
+        <button onclick="saveAnswer('guests')">Submit</button>
+        <div class="answers" id="guestsAnswers">(No answers yet)</div>
+    </div>
+
+    <div class="question-section" id="additionalInfoSection">
+        <h4>Any additional comments or information:</h4>
+        <textarea id="additionalInfo"></textarea><br>
+        <button onclick="saveAnswer('additionalInfo')">Submit</button>
+        <div class="answers" id="additionalInfoAnswers">(No answers yet)</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
