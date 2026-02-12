@@ -1,29 +1,8 @@
-/* Table of Contents
-----------------------------------
-
-0- Global CSS
-1- Heading CSS
-2- Button CSS
-3- Header Area CSS
-4- Home Area CSS
-5- About Area CSS
-6- Qualification Area CSS 
-7- Services Area CSS
-8- Portfolio Area CSS
-9- Testimonials Area CSS
-10- Blog Area CSS
-11- Contact Area CSS
-12- Footer Area CSS
-13- Scroll-Top Area CSS
-
-*/
-
-
 /*--------------------- 0- Global CSS (Start) ---------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 :root{
-    --purple: #329b6d;
+    --green: #329b6d;
     --black: #000000;
     --white: #F7F5F2;
     --grey: #DFDFDE;
@@ -36,7 +15,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    text-transform: capitalize;
+    text-transform: none;
     border: none;
     outline: none;
     -webkit-transition: all 0.2s linear;
@@ -47,7 +26,7 @@
 
 *::selection{
     color: var(--white);
-    background-color: var(--purple);
+    background-color: var(--green);
 }
 
 html{
@@ -71,7 +50,7 @@ section{
 
 ::-webkit-scrollbar-thumb{
     border-radius: 1rem;
-    background-color: var(--purple);
+    background-color: var(--green);
 }
 
 ::-webkit-scrollbar-track{
@@ -87,7 +66,7 @@ section{
 
 .swiper-pagination-bullet-active{
     width: 3rem;
-    background: var(--purple);
+    background: var(--green);
 }
 
 /*--------------------- 0- Global CSS (End) ---------------------*/
@@ -102,7 +81,7 @@ section{
 .heading h2{
     text-align: center;
     padding-bottom: 2rem;
-    color:var(--purple);
+    color:var(--green);
     font-size: 4rem;
 }
 
@@ -117,7 +96,7 @@ section{
     position: absolute;
     bottom: -0.5rem; left: 0;
     z-index: -1;
-    background: var(--purple);
+    background: var(--green);
     height: 0.2rem;
     width: 80%;
     margin-left: 10%;
@@ -132,9 +111,9 @@ section{
     display: inline-block;
     padding: 1rem 2rem;
     font-size: 1.8rem;
-    color: var(--purple);
+    color: var(--green);
     background-color: transparent;
-    border: 0.2rem solid var(--purple);
+    border: 0.2rem solid var(--green);
 }
 
 .btn i{
@@ -143,7 +122,7 @@ section{
 
 .btn:hover{
     color: var(--white);
-    background-color: var(--purple);
+    background-color: var(--green);
     cursor: pointer;
 }
 
@@ -152,7 +131,7 @@ section{
 
 
 /*--------------------- 3- Header Area CSS (Start) ---------------------*/
-header{
+.header{
     position: fixed;
     top: 0;
     left: 0;
@@ -175,31 +154,31 @@ header{
     z-index: 999;
 }
 
-header.sticky{
+.header.sticky{
     border-bottom: 0.1rem solid var(--grey);
     background: rgba(0, 0, 0, 0.8);
 }
 
-header .logo h2{
+.header .logo h2{
     font-size: 2.5rem;
     font-weight: 900;
-    color: var(--purple);
+    color: var(--green);
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
 
-header .navbar a{
+.header .navbar a{
     color: var(--white);
     font-size: 1.8rem;
     margin-left: 1rem;
 }
 
-header .navbar a:hover,
-header .navbar a.active{
-    color: var(--purple);
+.header .navbar a:hover,
+.header .navbar a.active{
+    color: var(--green);
 }
 
-header #menu-btn{
+.header #menu-btn{
     font-size: 3rem;
     color: var(--white);
     cursor: pointer;
@@ -210,13 +189,13 @@ header #menu-btn{
     display: none;
 }
 
-header .fa-times{
+.header .fa-times{
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
 }
 
-header #menu-btn:hover{
-    color: var(--purple);
+.header #menu-btn:hover{
+    color: var(--green);
 }
 
 /*--------------------- 3- Header Area CSS (End) ---------------------*/
@@ -284,7 +263,7 @@ header #menu-btn:hover{
 .home .content h2{
     font-size: 2.5rem;
     font-weight: 400;
-    color: var(--purple);
+    color: var(--green);
 }
 
 .home .content h1{
@@ -295,7 +274,7 @@ header #menu-btn:hover{
 }
 
 .home .content h1 span{
-    color: var(--purple);
+    color: var(--green);
 
 }
 
@@ -307,6 +286,87 @@ header #menu-btn:hover{
     line-height: 1.5;
 }
 /*--------------------- 4- Home Area CSS (End) ---------------------*/
+
+/*--------------------- 10- Skills Area CSS (Start) ---------------------*/
+
+
+.skills .content .intro h5 i{
+    color: var(--green);
+    padding-right: 0.5rem;
+}
+
+.skills .content .intro h5 span{
+    color: var(--grey);
+}
+
+.skills .content .main-heading{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.skills p{
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    color: var(--grey);
+}
+
+
+.skills{
+  padding: 6rem 5%;
+}
+
+.skills-wrap{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+
+.skills-cards{
+  display: grid;
+  gap: 1.5rem;
+}
+
+.skill-card{
+  background: #222;
+  border: 0.1rem solid rgba(255,255,255,0.12);
+  border-radius: 0.8rem;
+  padding: 2rem;
+}
+
+.skill-card h3{
+  font-size: 2rem;
+  color: var(--white);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.skill-card h3 i{
+  color: var(--green);
+}
+
+.tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tag{
+  font-size: 1.4rem;
+  color: var(--grey);
+  border: 0.1rem solid rgba(255,255,255,0.18);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+}
+
+/*--------------------- Skills Area CSS (End) ---------------------*/
+
+
+/*--------------------- 10- Skills Area CSS (End) ---------------------*/
 
 
 
@@ -331,7 +391,7 @@ header #menu-btn:hover{
 
 .about .image img{
     width: 100%;
-    border: 1rem solid var(--purple);
+    border: 1rem solid var(--green);
 }
 
 .about .content{
@@ -419,7 +479,7 @@ header #menu-btn:hover{
 
 .counting .box .count{
     font-size: 3.5rem;
-    color: var(--purple);
+    color: var(--green);
     padding-bottom: 0.5rem;
 }
 
@@ -428,79 +488,6 @@ header #menu-btn:hover{
     color: var(--white);
 }
 
-.skill-container{
-    padding: 2rem 0;
-}
-
-.skills{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-}
-
-.skill-item{
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 30rem;
-        flex: 1 1 30rem;
-    margin-right: 1.5rem;
-}
-
-.skill-item .box{
-    padding:1rem 0;
-}
-
- .skill-item .box h3{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding:.7rem 0;
-    font-size: 1.7rem;
-    color: var(--white);
-    font-weight: 400;
-}
-
- .skill-item .box .progress-bar{
-    width:100%;
-    background:#222;
-    overflow:hidden;
-    height:1rem;
-    border-radius: 50rem;
-}
-
- .skill-item .box .progress-bar span{
-    display:block;
-    height:100%;
-    background: var(--purple);
-}
-
- .skill-item.item1 .box:nth-child(1) .progress-bar span{
-    width:95%;
-}
-
- .skill-item.item1 .box:nth-child(2) .progress-bar span{
-    width:90%;
-}
-
- .skill-item.item1 .box:nth-child(3) .progress-bar span{
-    width:85%;
-}
-
-.skill-item.item2 .box:nth-child(1) .progress-bar span{
-    width:75%;
-}
-
- .skill-item.item2 .box:nth-child(2) .progress-bar span{
-    width:65%;
-}
-
- .skill-item.item2 .box:nth-child(3) .progress-bar span{
-    width:60%;
-}
 
 /*--------------------- 5- About Area CSS (End) ---------------------*/
 
@@ -534,7 +521,7 @@ header #menu-btn:hover{
     -ms-flex: 1 1 40rem;
         flex: 1 1 40rem;
     padding: 0 3rem 2rem 3rem;
-    border-left: 0.2rem solid var(--purple);
+    border-left: 0.2rem solid var(--green);
     margin-left: 2rem;
 }
 
@@ -549,7 +536,7 @@ header #menu-btn:hover{
     text-align: center;
     font-size: 2rem;
     color:var(--white);
-    background:var(--purple);
+    background:var(--green);
 }
 
 .experience-item .content{
@@ -614,7 +601,7 @@ header #menu-btn:hover{
 }
 
 .service-item:hover{
-    background-color: var(--purple);
+    background-color: var(--green);
 }
 
 .service-item i{
@@ -666,7 +653,7 @@ header #menu-btn:hover{
 
 .controls .button.active{
     cursor: pointer;
-    background-color: var(--purple);
+    background-color: var(--green);
     color: var(--white);
 }
 
@@ -720,7 +707,7 @@ header #menu-btn:hover{
 .portfolio-item .content h4{
     font-size: 2rem;
     font-weight: bold;
-    color: var(--purple);
+    color: var(--green);
     transform-origin: top;
     -webkit-transform: translateY(-10rem);
             transform: translateY(-10rem);
@@ -748,7 +735,7 @@ header #menu-btn:hover{
 
 .portfolio-item .content .view-btn{
     font-size: 2rem;
-    color: var(--purple);
+    color: var(--green);
     transform-origin: top;
     -webkit-transform: translateY(-10rem);
             transform: translateY(-10rem);
@@ -846,7 +833,7 @@ header #menu-btn:hover{
 }
 
 .testi-item:hover{
-    border-color: var(--purple);
+    border-color: var(--green);
 }
 
 .testi-item img{
@@ -880,50 +867,48 @@ header #menu-btn:hover{
 }
 
 .testi-item .intro h5{
-    color: var(--purple);
+    color: var(--green);
     font-size: 1.4rem;
     font-weight: 400;
 }
 
 /*--------------------- 9- Testimonials Area CSS (End) ---------------------*/
 
-
-
-/*--------------------- 10- Blog Area CSS (Start) ---------------------*/
-.blog-slider{
+/*--------------------- 11- projects Area CSS (Start) ---------------------*/
+.projects-slider{
     position: relative;
     padding-bottom: 4rem;
     overflow: hidden;
 }
 
-.blog-item{
+.projects-item{
     background-color: #222;
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     overflow: hidden;
 }
 
-.blog-item .image{
+.projects-item .image{
     height: 25rem;
     overflow: hidden;
 }
 
-.blog-item:hover .image img{
+.projects-item:hover .image img{
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
 }
 
-.blog-item .image img{
+.projects-item .image img{
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-.blog-item .content{
+.projects-item .content{
     padding: 2rem 1rem;
 }
 
-.blog-item .content .intro{
+.projects-item .content .intro{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -935,43 +920,120 @@ header #menu-btn:hover{
     margin-bottom: 1.5rem;
 }
 
-.blog-item .content .intro h5{
+.projects-item .content .intro h5{
     font-size: 1.5rem;
 }
 
-.blog-item .content .intro h5 i{
-    color: var(--purple);
+.projects-item .content .intro h5 i{
+    color: var(--green);
     padding-right: 0.5rem;
 }
 
-.blog-item .content .intro h5 span{
+.projects-item .content .intro h5 span{
     color: var(--grey);
 }
 
-.blog-item .content .main-heading{
+.projects-item .content .main-heading{
     font-size: 2rem;
     font-weight: bold;
     color: var(--white);
 }
 
-.blog-item p{
+.projects-item p{
     padding: 1rem 0;
     font-size: 1.6rem;
     color: var(--grey);
 }
 
-.blog-item .btn{
+.projects-item .btn{
     margin-top: 1rem;
 }
 
-/*--------------------- 10- Blog Area CSS (End) ---------------------*/
+/*--------------------- 10- projects Area CSS (End) ---------------------*/
+
+/*--------------------- 10- Interests Area CSS (Start) ---------------------*/
+.interests-slider{
+    position: relative;
+    padding-bottom: 4rem;
+    overflow: hidden;
+}
+
+.interests-item{
+    background-color: #222;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.interests-item .image{
+    height: 25rem;
+    overflow: hidden;
+}
+
+.interests-item:hover .image img{
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+}
+
+.interests-item .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.interests-item .content{
+    padding: 2rem 1rem;
+}
+
+.interests-item .content .intro{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    border-bottom: 0.2rem solid var(--grey);
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.interests-item .content .intro h5{
+    font-size: 1.5rem;
+}
+
+.interests-item .content .intro h5 i{
+    color: var(--green);
+    padding-right: 0.5rem;
+}
+
+.interests-item .content .intro h5 span{
+    color: var(--grey);
+}
+
+.interests-item .content .main-heading{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.interests-item p{
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    color: var(--grey);
+}
+
+.interests-item .btn{
+    margin-top: 1rem;
+}
+
+/*--------------------- 10- Interests Area CSS (End) ---------------------*/
 
 
 
 /*--------------------- 11- Contact Area CSS (Start) ---------------------*/
 .contact .alert{
     font-size: 2rem;
-    color: var(--purple);
+    color: var(--green);
     border-radius: 0.5rem;
     padding-left: 1rem;
 }
@@ -1035,7 +1097,7 @@ header #menu-btn:hover{
 .contact-info .info-item .detail .fas,
 .contact-info .info-item .detail .fab{
     border-radius: 50%;
-    color: var(--purple);
+    color: var(--green);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;;
@@ -1089,13 +1151,24 @@ header #menu-btn:hover{
     margin-top: 1rem;
 }
 
+.contact a,
+.contact a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  color: #329b6d;
+}
+
+
 /*--------------------- 11- Contact Area CSS (End) ---------------------*/
 
 
 
 /*--------------------- 12- Footer Area CSS (Start) ---------------------*/
 footer{
-    background-color: var(--purple);
+    background-color: var(--green);
     padding: 2rem 0;
     text-align: center;
 }
@@ -1141,6 +1214,11 @@ footer .content p{
 
 footer .content p span{
     color: var(--black);
+}
+
+footer .muted {
+  font-size: 0.5rem;
+  opacity: 0.7;
 }
 
 /*--------------------- 12- Footer Area CSS (End) ---------------------*/
